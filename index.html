@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ландшафтный дизайн для 10 соток — курс из шести модулей</title>
+<meta name="description" content="Шесть PDF-модулей: от анализа участка до полного проекта со сметой и календарём работ.">
+<style>
+  :root{
+    --paper:#f6f3ea;
+    --paper-2:#efeade;
+    --ink:#16241b;
+    --ink-soft:#42544a;
+    --moss:#3f6b46;
+    --moss-deep:#24452f;
+    --clay:#a9613a;
+    --line:#d9d2c2;
+    --radius:2px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-0.01em;line-height:1.1;margin:0}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--moss);margin:0 0 18px;font-weight:600;
+  }
+
+  /* ── header ── */
+  header{border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px}
+  .brand{font-family:Georgia,serif;font-size:19px;letter-spacing:.02em}
+  .brand span{color:var(--moss)}
+  .nav a.small{font-size:14px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+  .nav a.small:hover{border-color:var(--moss)}
+
+  /* ── hero ── */
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+  h1{font-size:clamp(34px,4.4vw,54px);text-wrap:balance}
+  .lede{font-size:19px;color:var(--ink-soft);margin:24px 0 0;max-width:34em}
+  .facts{display:flex;flex-wrap:wrap;gap:28px;margin:36px 0 0;padding:22px 0 0;border-top:1px solid var(--line)}
+  .fact b{display:block;font-family:Georgia,serif;font-size:26px;line-height:1;margin-bottom:5px}
+  .fact span{font-size:13px;color:var(--ink-soft)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:48px;padding:0 26px;border-radius:var(--radius);
+    background:var(--moss-deep);color:#f8f6ee;text-decoration:none;font-size:15px;
+    border:1px solid var(--moss-deep);transition:background .15s ease
+  }
+  .btn:hover{background:var(--moss)}
+  .btn.ghost{background:transparent;color:var(--moss-deep);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--moss);background:#fff}
+
+  /* стопка обложек */
+  .stack{position:relative;padding-top:8px}
+  .stack img{
+    position:absolute;width:100%;max-width:330px;border:1px solid var(--line);
+    box-shadow:0 14px 34px rgba(22,36,27,.13);background:#fff;
+  }
+  .stack img:nth-child(1){top:36px;left:0;transform:rotate(-4deg);z-index:1}
+  .stack img:nth-child(2){top:8px;left:44px;transform:rotate(-1deg);z-index:2}
+  .stack img:nth-child(3){top:68px;left:96px;transform:rotate(3deg);z-index:3}
+  .stack::after{content:"";display:block;padding-bottom:132%}
+
+  /* ── sections ── */
+  section{padding:76px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:14px}
+  .sub{color:var(--ink-soft);max-width:40em;margin:0 0 40px}
+
+  /* список модулей — строки, не карточки */
+  .modules{border-top:1px solid var(--line)}
+  .module{
+    display:grid;grid-template-columns:52px 1fr 132px;gap:24px;align-items:baseline;
+    padding:26px 0;border-bottom:1px solid var(--line)
+  }
+  .module .num{font-family:Georgia,serif;font-size:15px;color:var(--clay)}
+  .module h3{font-size:21px;line-height:1.25}
+  .module p{margin:8px 0 0;color:var(--ink-soft);font-size:15.5px;max-width:52ch}
+  .module .meta{font-size:13px;color:var(--ink-soft);text-align:right;white-space:nowrap}
+
+  /* что внутри модуля */
+  .inside{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+  .inside ul{list-style:none;margin:0;padding:0}
+  .inside li{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .inside li b{font-weight:600}
+
+  /* аудитория */
+  .who{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .who h3{font-size:19px;margin-bottom:10px}
+  .who p{margin:0;font-size:15.5px;color:var(--ink-soft)}
+
+  /* автор */
+  .author{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .quote{
+    font-family:Georgia,serif;font-size:23px;line-height:1.42;margin:0;
+    padding-left:22px;border-left:2px solid var(--moss);
+  }
+
+  /* цены */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch}
+  .plan{border:1px solid var(--line);padding:30px 26px;display:flex;flex-direction:column;background:#fffdf7}
+  .plan.featured{border-color:var(--moss);background:#fff}
+  .plan h3{font-size:20px;margin-bottom:6px}
+  .plan .price{font-family:Georgia,serif;font-size:32px;margin:14px 0 4px}
+  .plan .note{font-size:13px;color:var(--ink-soft);margin:0 0 20px}
+  .plan ul{list-style:none;padding:0;margin:0 0 26px;font-size:15px}
+  .plan li{padding:7px 0;border-bottom:1px solid var(--paper-2)}
+  .plan .btn{margin-top:auto;width:100%}
+  .tag{
+    display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--moss);margin-bottom:10px;font-weight:600
+  }
+
+  /* faq */
+  details{border-bottom:1px solid var(--line);padding:20px 0}
+  summary{cursor:pointer;font-size:17px;font-weight:600;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--moss);font-weight:400;font-size:20px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:12px 0 0;color:var(--ink-soft);max-width:62ch}
+
+  /* финальный блок */
+  .closing{background:var(--moss-deep);color:#f2efe4;border-bottom:none}
+  .closing h2{color:#fff}
+  .closing p{color:#cfd8c8;max-width:42em}
+  .closing .btn{background:#f2efe4;color:var(--moss-deep);border-color:#f2efe4}
+  .closing .btn:hover{background:#fff}
+
+  footer{padding:34px 0;font-size:13.5px;color:var(--ink-soft)}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  @media (max-width:900px){
+    .hero-grid,.inside,.author{grid-template-columns:1fr;gap:36px}
+    .stack{order:-1;max-width:100%;padding:0;display:flex;gap:10px;align-items:flex-start}
+    .stack::after{display:none}
+    .stack img{position:static;transform:none;width:33.33%;max-width:none;box-shadow:0 8px 20px rgba(22,36,27,.12)}
+    .who,.plans{grid-template-columns:1fr;gap:26px}
+    .module{grid-template-columns:36px 1fr;gap:14px}
+    .module .meta{grid-column:2;text-align:left;margin-top:6px}
+    section{padding:56px 0}
+    .hero{padding:48px 0}
+  }
+  @media (max-width:520px){
+    .nav{gap:10px;flex-wrap:wrap;padding:14px 0}
+    .nav a.small{font-size:13px}
+    h1{font-size:32px}
+    .lede{font-size:17px}
+    .facts{gap:20px}
+    .fact b{font-size:23px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Сад <span>10 соток</span></div>
+    <a class="small" href="#modules">Модули</a>
+    <a class="small" href="#plans">Форматы</a>
+    <a class="small" href="#faq">Вопросы</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Курс · базовый уровень · 6 модулей</p>
+      <h1>Участок 10 соток:<br>от пустого плана до готового проекта</h1>
+      <p class="lede">Шесть PDF-модулей. Разбираем тысячу квадратных метров по шагам: анализ, зонирование, растения, покрытия, смета и календарь работ на два сезона.</p>
+      <div class="facts">
+        <div class="fact"><b>6</b><span>модулей</span></div>
+        <div class="fact"><b>109</b><span>страниц</span></div>
+        <div class="fact"><b>45</b><span>таблиц и расчётов</span></div>
+        <div class="fact"><b>8+</b><span>страниц в каждом</span></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#plans">Смотреть форматы</a>
+        <a class="btn ghost" href="#modules">Что внутри</a>
+      </div>
+    </div>
+    <div class="stack">
+      <img src="assets/m1.jpg" alt="Обложка модуля 1 — Подготовка">
+      <img src="assets/m3.jpg" alt="Обложка модуля 3 — Композиция">
+      <img src="assets/m5.jpg" alt="Обложка модуля 5 — Дорожки и материалы">
+    </div>
+  </div>
+</div>
+
+<section id="modules">
+  <div class="wrap">
+    <h2>Что внутри</h2>
+    <p class="sub">Каждый модуль заканчивается практическим заданием и чек-листом. Материал рассчитан на владельца участка, а не на профессионального проектировщика.</p>
+    <div class="modules">
+      <div class="module">
+        <div class="num">01</div>
+        <div>
+          <h3>Подготовка и «нулевой» слой</h3>
+          <p>Сбор информации о владельцах, бюджет в трёх сценариях, ограничения участка, папка проекта и стиль сада.</p>
+        </div>
+        <div class="meta">12 стр. · 7 таблиц</div>
+      </div>
+      <div class="module">
+        <div class="num">02</div>
+        <div>
+          <h3>Анализ участка и план</h3>
+          <p>Обмеры без спецтехники, ситуационный план, инсоляция, уклон, почва, вода и ветер — пять слоёв анализа на одном листе.</p>
+        </div>
+        <div class="meta">14 стр. · 7 таблиц</div>
+      </div>
+      <div class="module">
+        <div class="num">03</div>
+        <div>
+          <h3>Композиция и зонирование</h3>
+          <p>Три яруса, законы композиции, баланс территории на 1000 м², маршрут гостя, акценты и три типовые схемы планировки.</p>
+        </div>
+        <div class="meta">22 стр. · 10 таблиц</div>
+      </div>
+      <div class="module">
+        <div class="num">04</div>
+        <div>
+          <h3>Зелёные насаждения</h3>
+          <p>Ассортимент для зоны 4–5: деревья, кустарники, многолетники и злаки. Нормы посадки, расчёт количества и стоимости озеленения.</p>
+        </div>
+        <div class="meta">19 стр. · 13 таблиц</div>
+      </div>
+      <div class="module">
+        <div class="num">05</div>
+        <div>
+          <h3>Дорожки, покрытия, материалы</h3>
+          <p>Сравнение покрытий с ценами, расчёт плитки, щебня и песка, пирог основания, ступени на склоне, освещение и смета.</p>
+        </div>
+        <div class="meta">22 стр. · 9 таблиц</div>
+      </div>
+      <div class="module">
+        <div class="num">06</div>
+        <div>
+          <h3>Полный проект</h3>
+          <p>Сквозной пример на 1000 м²: состав проекта, ведомости, бюджет, календарь на два сезона и приёмка работ.</p>
+        </div>
+        <div class="meta">20 стр. · 12 таблиц</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Как устроен модуль</h2>
+    <p class="sub">Никакой воды и общих слов: в каждом модуле есть цифры, которые можно приложить к своему участку.</p>
+    <div class="inside">
+      <ul>
+        <li><b>Расчёты.</b> Литры, метры, кубометры, рубли — с формулами и примером</li>
+        <li><b>Таблицы.</b> От 7 до 13 на модуль: ассортимент, нормы, сметы</li>
+        <li><b>Примеры из практики.</b> Участки 20×50 и 25×40 м с разбором</li>
+      </ul>
+      <ul>
+        <li><b>Блоки-предупреждения.</b> Где чаще всего ошибаются и чем это грозит</li>
+        <li><b>Практическое задание.</b> 6–8 шагов с конкретным результатом</li>
+        <li><b>Чек-лист.</b> Проверка перед переходом к следующему этапу</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Кому подойдёт</h2>
+    <div class="who">
+      <div>
+        <h3>Только купили участок</h3>
+        <p>Есть 10 соток и примерное представление о том, что хочется. Курс даёт порядок действий вместо хаотичных покупок.</p>
+      </div>
+      <div>
+        <h3>Строите дом</h3>
+        <p>Нужно понять, что делать с остатком площади после пятна застройки: 750–850 м² сада — это много, и они требуют плана.</p>
+      </div>
+      <div>
+        <h3>Хотите сделать сами</h3>
+        <p>Готовы разобраться в ассортименте и материалах, чтобы не переплачивать подрядчику за проект из шести листов.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap author">
+    <div>
+      <h2>Как построен курс</h2>
+      <p class="sub" style="margin-bottom:0">Десять этапов проектирования малого сада — от сбора информации о владельцах и анализа участка до сметы, календаря работ и приёмки. Курс переводит их на язык владельца участка: без чертёжных терминов, но с реальными расчётами и примерами на 1000 м².</p>
+    </div>
+    <blockquote class="quote">«Сад на десяти сотках не прощает ошибок масштаба: всё видно с крыльца, из окна кухни и от калитки. Поэтому композиция здесь — не украшение, а условие существования сада».</blockquote>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <h2>Форматы</h2>
+    <p class="sub">Цены — черновые, до финального согласования. Скажите, какой формат ближе — соберу под него оплату и доступ.</p>
+    <div class="plans">
+      <div class="plan">
+        <span class="tag">Старт</span>
+        <h3>Один модуль</h3>
+        <p class="price">490 ₽</p>
+        <p class="note">любой модуль на выбор</p>
+        <ul>
+          <li>PDF на 12–22 страницы</li>
+          <li>Практическое задание</li>
+          <li>Чек-лист самопроверки</li>
+        </ul>
+        <a class="btn ghost" href="#faq">Выбрать модуль</a>
+      </div>
+      <div class="plan featured">
+        <span class="tag">Полный курс</span>
+        <h3>Все шесть модулей</h3>
+        <p class="price">2 900 ₽</p>
+        <p class="note">109 страниц, доступ навсегда</p>
+        <ul>
+          <li>Шесть PDF целиком</li>
+          <li>Сквозной пример на 1000 м²</li>
+          <li>Ведомость материалов и календарь</li>
+          <li>Обновления версий бесплатно</li>
+        </ul>
+        <a class="btn" href="#faq">Забрать курс</a>
+      </div>
+      <div class="plan">
+        <span class="tag">С разбором</span>
+        <h3>Курс + проверка</h3>
+        <p class="price">5 900 ₽</p>
+        <p class="note">курс и разбор вашего плана</p>
+        <ul>
+          <li>Всё из полного курса</li>
+          <li>Проверка схемы зонирования</li>
+          <li>Комментарии по ассортименту</li>
+        </ul>
+        <a class="btn ghost" href="#faq">Обсудить</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Вопросы</h2>
+    <details>
+      <summary>Нужны ли навыки черчения?</summary>
+      <p>Нет. Всё, что нужно — схема на миллиметровке в масштабе 1:100 и рулетка. Программы для 3D-визуализации в курсе не используются.</p>
+    </details>
+    <details>
+      <summary>Подойдёт ли для участка не 10 соток?</summary>
+      <p>Да, методика работает для 6–15 соток. Все расчёты даны с формулами, поэтому пересчитать под свою площадь можно за вечер.</p>
+    </details>
+    <details>
+      <summary>Это для Подмосковья?</summary>
+      <p>Ассортимент растений и календарь работ рассчитаны на климатическую зону 4–5. Для других регионов нужно менять видовой состав, структура курса остаётся.</p>
+    </details>
+    <details>
+      <summary>В каком виде материалы?</summary>
+      <p>PDF, открывается на телефоне и компьютере. Печать на A4 — без потери вёрстки.</p>
+    </details>
+  </div>
+</section>
+
+<div class="closing">
+  <div class="wrap" style="padding:70px 24px">
+    <h2>Начните с анализа участка</h2>
+    <p>Первый модуль отвечает на вопрос «что у меня есть», второй — «что с этим делать». Остальные четыре доводят до сметы и календаря.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://t.me/ogorodru" target="_blank" rel="noopener">Написать в Telegram</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Курс «Ландшафтный дизайн для 10 соток»</span>
+    <span>Материалы носят образовательный характер. Цены ориентировочные.</span>
+  </div>
+</footer>
+
+</body>
+</html>
